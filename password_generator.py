@@ -19,25 +19,24 @@ symbols = input("Enter how many symbols you want in your password: ")
 symbols = int(symbols)
 numbers = input("Enter how many numbers you want in your password: ")
 numbers = int(numbers)
-print("\n")
 
-password1 = ""
+password_list = []
 for i in range(0,letters):
     char = random.choice(letters_upper_lower)
-    password1 += char
-#print(password1)
+    password_list += char
 
-password2 = ""
 for i in range(0,symbols):
     symbol = random.choice(symbols_string)
-    password2 += symbol
-#print(password2)
+    password_list += symbol
 
-password3 = ""
 for i in range(0,numbers):
     num = random.choice(numbers_string)
-    password3 +=  num
-#print(password3)
-
-concat_password = password1 + password2 + password3
-print(concat_password)
+    password_list +=  num
+random.shuffle(password_list)
+length = len(password_list)
+if length < 5:
+    continue
+password = ""
+for strings in password_list:
+    password += strings
+print(password)
